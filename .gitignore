@@ -1,0 +1,48 @@
+# Dependencias
+/node_modules
+/package-lock.json
+/yarn.lock
+
+# Archivos de construcción y distribución
+/dist
+/build
+/.cache
+
+# Archivos temporales
+/tmp
+/temp
+
+# Archivos de entorno
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Archivos de registro
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Archivos específicos del sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Archivos de IDE/editores
+/.idea
+/.vscode
+*.sublime-project
+*.sublime-workspace
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Archivos específicos del proyecto
+/coverage
+/.nyc_output
+/public/bundle.*

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Meta Quest 3 VR Web</title>
+    <meta name="description" content="Aplicación Web VR para Meta Quest 3">
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/aframe-passthrough@0.0.4/dist/aframe-passthrough-component.min.js"></script>
+    <script src="node_modules/aframe-extras/dist/aframe-extras.min.js"></script>
+    <script src="node_modules/aframe-event-set-component/dist/aframe-event-set-component.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <a-scene
+        webxr="optionalFeatures: dom-overlay, dom-overlay-for-handheld-ar, hand-tracking, hit-test; requiredFeatures: local-floor, bounded-floor; overlayElement: #overlay;"
+        ar-mode-ui="enabled: true">
+
+        <!-- Entorno básico -->
+        <!-- <a-sky color="#ECECEC"></a-sky> -->
+
+        <!-- Habilitar passthrough -->
+        <a-entity passthrough="contribution: all;"></a-entity>
+
+        <!-- Objetos 3D -->
+        <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9" class="interactable"></a-box>
+        <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E" class="interactable"></a-sphere>
+        <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D" class="interactable"></a-cylinder>
+
+        <!-- Suelo -->
+        <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4" opacity="0.7"></a-plane>
+
+        <!-- Controles de movimiento para VR -->
+        <a-entity id="rig" movement-controls="fly: true">
+            <a-entity id="camera" camera position="0 1.6 0" look-controls></a-entity>
+
+            <!-- Controles táctiles Oculus -->
+            <a-entity oculus-touch-controls="hand: left"></a-entity>
+            <a-entity oculus-touch-controls="hand: right"></a-entity>
+
+            <!-- Entidades para manos -->
+            <a-entity id="leftHand" hand-tracking-controls="hand: left; modelColor: #ffcccc"></a-entity>
+            <a-entity id="rightHand" hand-tracking-controls="hand: right; modelColor: #ccffcc"></a-entity>
+        </a-entity>
+    </a-scene>
+    <div id="overlay" style="display: none;"></div>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Meta Quest 3 VR Web</title>
+    <meta name="description" content="Aplicación Web VR para Meta Quest 3">
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <a-scene>
+        <!-- Entorno básico -->
+        <a-sky color="#ECECEC"></a-sky>
+
+        <!-- Objetos 3D -->
+        <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
+        <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
+        <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
+
+        <!-- Suelo -->
+        <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
+
+        <!-- Controles de movimiento para VR -->
+        <a-entity movement-controls="fly: true">
+            <a-entity camera position="0 1.6 0" look-controls></a-entity>
+            <a-entity oculus-touch-controls="hand: left"></a-entity>
+            <a-entity oculus-touch-controls="hand: right"></a-entity>
+        </a-entity>
+    </a-scene>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
