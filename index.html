@@ -6,8 +6,9 @@
     <title>Meta Quest 3 VR Web</title>
     <meta name="description" content="Aplicación Web VR para Meta Quest 3">
     <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-passthrough@latest/dist/aframe-passthrough-component.min.js"></script>
     <script
-        src="https://cdn.jsdelivr.net/npm/aframe-passthrough@0.0.4/dist/aframe-passthrough-component.min.js"></script>
+        src="https://cdn.jsdelivr.net/npm/aframe-hand-tracking-controls@^0.0.1/dist/aframe-hand-tracking-controls.min.js"></script>
     <script src="node_modules/aframe-extras/dist/aframe-extras.min.js"></script>
     <script src="node_modules/aframe-event-set-component/dist/aframe-event-set-component.min.js"></script>
     <link rel="stylesheet" href="styles.css">
@@ -18,20 +19,66 @@
         webxr="optionalFeatures: dom-overlay, dom-overlay-for-handheld-ar, hand-tracking, hit-test; requiredFeatures: local-floor, bounded-floor; overlayElement: #overlay;"
         ar-mode-ui="enabled: true">
 
-        <!-- Entorno básico -->
-        <!-- <a-sky color="#ECECEC"></a-sky> -->
+        <a-assets>
+            <a-asset-item id="ambo" src="assets/models/ambo.glb"></a-asset-item>
+            <a-asset-item id="dosdemayo" src="assets/models/dosdemayo.glb"></a-asset-item>
+            <a-asset-item id="huacaybamba" src="assets/models/huacaybamba.glb"></a-asset-item>
+            <a-asset-item id="huamalies" src="assets/models/huamalies.glb"></a-asset-item>
+            <a-asset-item id="huanuco" src="assets/models/huanuco.glb"></a-asset-item>
+            <a-asset-item id="lauricocha" src="assets/models/lauricocha.glb"></a-asset-item>
+            <a-asset-item id="leoncioprado" src="assets/models/leoncioprado.glb"></a-asset-item>
+            <a-asset-item id="mara" src="assets/models/mara.glb"></a-asset-item>
+            <a-asset-item id="pachitea" src="assets/models/pachitea.glb"></a-asset-item>
+            <a-asset-item id="puertoinca" src="assets/models/puertoinca.glb"></a-asset-item>
+            <a-asset-item id="yarowilca" src="assets/models/yarowilca.glb"></a-asset-item>
+        </a-assets>
 
         <!-- Habilitar passthrough -->
         <a-entity passthrough="contribution: all;"></a-entity>
 
         <!-- Objetos 3D -->
-        <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9" class="interactable"></a-box>
-        <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E" class="interactable"></a-sphere>
-        <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D" class="interactable"></a-cylinder>
 
-        <!-- Suelo -->
+        <a-entity gltf-model="#ambo" position="0 2 -3" rotation="0 0 0" scale="0.3 0.3 0.1" class="interactable">
+        </a-entity>
+
+        <a-entity gltf-model="#dosdemayo" position="0 1.25 -3" rotation="0 0 0" scale="0.3 0.3 0.1"
+            class="interactable">
+        </a-entity>
+
+        <a-entity gltf-model="#huacaybamba" position="1 0.75 -3" rotation="0 0 0" scale="0.3 0.3 0.1"
+            class="interactable">
+        </a-entity>
+
+        <a-entity gltf-model="#huamalies" position="1 0.75 -3" rotation="0 0 0" scale="0.3 0.3 0.1"
+            class="interactable">
+        </a-entity>
+
+        <a-entity gltf-model="#huanuco" position="1 0.75 -3" rotation="0 0 0" scale="0.3 0.3 0.1" class="interactable">
+        </a-entity>
+
+        <a-entity gltf-model="#lauricocha" position="1 0.75 -3" rotation="0 0 0" scale="0.3 0.3 0.1"
+            class="interactable">
+        </a-entity>
+
+        <a-entity gltf-model="#mara" position="1 0.75 -3" rotation="0 0 0" scale="0.3 0.3 0.1" class="interactable">
+        </a-entity>
+
+        <a-entity gltf-model="#pachitea" position="1 0.75 -3" rotation="0 0 0" scale="0.3 0.3 0.1" class="interactable">
+        </a-entity>
+
+        <a-entity gltf-model="#puertoinca" position="1 0.75 -3" rotation="0 0 0" scale="0.3 0.3 0.1"
+            class="interactable">
+        </a-entity>
+
+        <a-entity gltf-model="#yarowilca" position="1 0.75 -3" rotation="0 0 0" scale="0.3 0.3 0.1"
+            class="interactable">
+        </a-entity>
+
+        <!-- Suelo 
         <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4" opacity="0.7"></a-plane>
 
+
+    -->
         <!-- Controles de movimiento para VR -->
         <a-entity id="rig" movement-controls="fly: true">
             <a-entity id="camera" camera position="0 1.6 0" look-controls></a-entity>
@@ -41,46 +88,11 @@
             <a-entity oculus-touch-controls="hand: right"></a-entity>
 
             <!-- Entidades para manos -->
-            <a-entity id="leftHand" hand-tracking-controls="hand: left; modelColor: #ffcccc"></a-entity>
-            <a-entity id="rightHand" hand-tracking-controls="hand: right; modelColor: #ccffcc"></a-entity>
+            <a-entity id="leftHand" hand-tracking-controls="hand: left; modelColor: #ff6666; opacity: 0.9"></a-entity>
+            <a-entity id="rightHand" hand-tracking-controls="hand: right; modelColor: #ff6666; opacity: 0.9"></a-entity>
         </a-entity>
     </a-scene>
     <div id="overlay" style="display: none;"></div>
-    <script src="js/main.js"></script>
-</body>
-
-</html>
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="utf-8">
-    <title>Meta Quest 3 VR Web</title>
-    <meta name="description" content="Aplicación Web VR para Meta Quest 3">
-    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
-    <link rel="stylesheet" href="styles.css">
-</head>
-
-<body>
-    <a-scene>
-        <!-- Entorno básico -->
-        <a-sky color="#ECECEC"></a-sky>
-
-        <!-- Objetos 3D -->
-        <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
-        <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
-        <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
-
-        <!-- Suelo -->
-        <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
-
-        <!-- Controles de movimiento para VR -->
-        <a-entity movement-controls="fly: true">
-            <a-entity camera position="0 1.6 0" look-controls></a-entity>
-            <a-entity oculus-touch-controls="hand: left"></a-entity>
-            <a-entity oculus-touch-controls="hand: right"></a-entity>
-        </a-entity>
-    </a-scene>
     <script src="js/main.js"></script>
 </body>
 
