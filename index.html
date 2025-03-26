@@ -12,6 +12,7 @@
     <script src="node_modules/aframe-extras/dist/aframe-extras.min.js"></script>
     <script src="node_modules/aframe-event-set-component/dist/aframe-event-set-component.min.js"></script>
     <link rel="stylesheet" href="styles.css">
+    <script type="module" src="js/main.js"></script>
 </head>
 
 <body>
@@ -76,8 +77,6 @@
 
         <!-- Suelo 
         <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4" opacity="0.7"></a-plane>
-
-
     -->
         <!-- Controles de movimiento para VR -->
         <a-entity id="rig" movement-controls="fly: true">
@@ -88,12 +87,12 @@
             <a-entity oculus-touch-controls="hand: right"></a-entity>
 
             <!-- Entidades para manos -->
-            <a-entity id="leftHand" hand-tracking-controls="hand: left; modelColor: #ff6666; opacity: 0.9"></a-entity>
-            <a-entity id="rightHand" hand-tracking-controls="hand: right; modelColor: #ff6666; opacity: 0.9"></a-entity>
+            <a-entity id="leftHand" hand-tracking-controls="hand: left; modelColor: #eeeee4; opacity: 0.9"></a-entity>
+            <a-entity id="rightHand" hand-tracking-controls="hand: right; modelColor: #eeeee4; opacity: 0.9"></a-entity>
         </a-entity>
     </a-scene>
     <div id="overlay" style="display: none;"></div>
-    <script src="js/main.js"></script>
+
 </body>
 
 </html>
